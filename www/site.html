@@ -1,0 +1,86 @@
+<ons-navigator page="list.html" var="app.navi"></ons-navigator>
+<ons-template id="list.html">
+	<ons-page id="list-page">
+		<ons-toolbar>
+			<div class="center">Sites</div>
+		</ons-toolbar>
+
+		<ons-list >
+			<ons-list-item modifier="chevron" class="item" ng-repeat="site in sites" ng-click="getSiteInfo(site.Site.id)">
+				<ons-row>
+					<span class="item-id hide">{{site.Site.id}}</span>
+					<ons-col width="80px"> 
+						<img class="item-thum" src="http://compare.fdc-inc.com/img/sites/{{site.Site.site_image}}">
+					</ons-col>
+					<ons-col class="marleft15">
+						<header>
+							<span class="item-name">{{site.Site.site_name}}</span><br>
+							<span class="item-kname">{{site.Site.site_url_display}}</span>
+						</header>
+						<!-- <label class="small-label">Gender: </label>
+						<span class="item-gender">{{instructor.Instructor.gender}}</span><br>
+						<label class="small-label">Age: </label>
+						<span class="item-age"> {{instructor.Instructor.age}} </span> -->
+					</ons-col>
+				</ons-row>                          
+			</ons-list-item>
+		</ons-list>
+
+	</ons-page>
+</ons-template>
+
+<ons-template id="detail.html">
+    <ons-page id="detail-page">
+      	<ons-toolbar>
+	        <div class="left"><ons-back-button>Back</ons-back-button></div>
+	        <div class="center">Details</div>
+    	</ons-toolbar>
+
+    	<ons-list modifier="inset" style="margin-top: 10px" >
+	      	<ons-list-item class="item centerItem">
+				<img class="item-thumDetail center-block" src >
+				<div class="item-name text-center">Title</div>
+            </ons-list-item>
+
+            <ons-list-item class="item">
+				<ons-row>
+					<ons-col class="slabel" width="60px;"> School name: </ons-col>
+					<ons-col class="data item-name"> {{name ? name : 'N/A'}}</ons-col>
+				</ons-row> 
+				<ons-row>
+					<ons-col class="slabel" width="60px;"> Number of Teachers: </ons-col>
+					<ons-col class="data item-numTeacher">{{numTeacher ? numTeacher : 'N/A'}} </ons-col>
+				</ons-row> 
+				<ons-row>
+					<ons-col class="slabel" width="60px;"> School URL: </ons-col>
+					<ons-col class="data item-url"> {{url ? url : 'N/A'}}</ons-col>
+				</ons-row> 
+				<ons-row>
+					<ons-col class="slabel" width="60px;"> Free Trial: </ons-col>
+					<ons-col class="data item-fTrial"> {{fTrial ? fTrial : 'N/A'}}</ons-col>
+				</ons-row>
+				<ons-row>
+					<ons-col class="slabel" width="60px;"> Admission Fee: </ons-col>
+					<ons-col class="data item-adFee"> {{adFee ? adFee : 'N/A'}}</ons-col>
+				</ons-row> 
+				<ons-row>
+					<ons-col class="slabel" width="60px;"> Mode of Payment: </ons-col>
+					<ons-col class="data item-payment"> {{payment ? payment : 'N/A'}}</ons-col>
+				</ons-row> 
+				 <ons-row>
+					<ons-col class="data item-payment line23"> {{content}}</ons-col>
+				</ons-row>
+            </ons-list-item>
+            
+			<ons-list-item modifier="chevron" data-id="" id="add-note-action" class="add-note-action-item item-id" ng-click="getMessage($event)">
+          		<ons-icon icon="ion-chatboxes" fixed-width="true" style="color: #ccc"></ons-icon>Message
+        	</ons-list-item>
+        	<ons-list-item modifier="chevron" data-id="" id="add-note-action" class="add-note-action-item item-id" ng-click="getReview($event)">
+          		<ons-icon icon="ion-chatboxes" fixed-width="true" style="color: #ccc"></ons-icon>Reviews
+        	</ons-list-item>
+        </ons-list>
+
+
+        
+    </ons-page>
+</ons-template>

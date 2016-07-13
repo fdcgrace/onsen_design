@@ -1,0 +1,57 @@
+<ons-navigator page="list.html" var="app.navi"></ons-navigator>
+<ons-template id="list.html">
+	<ons-page id="list-page">
+		<ons-toolbar>
+			<div class="center">Instructors</div>
+		</ons-toolbar>
+
+		<ons-list >
+			<ons-list-item modifier="chevron" class="item" ng-repeat="instructor in instructors" ng-click="getInsInfo(instructor.Instructor.id)">
+				<ons-row>
+					<span class="item-id hide">{{instructor.Instructor.id}}</span>
+					<ons-col width="60px"> 
+						<img class="item-thum" src="http://livechatdata-c.sakura.ne.jp/compare-staging/img/instructors/{{instructor.Instructor.image}}">
+					</ons-col>
+					<ons-col>
+						<header>
+							<span class="item-name">{{instructor.Instructor.e_name}}</span>
+							<span class="item-kname">{{instructor.Instructor.k_namef}}</span>
+						</header>
+						<label class="small-label">Gender: </label>
+						<span class="item-gender">{{instructor.Instructor.gender}}</span><br>
+						<label class="small-label">Age: </label>
+						<span class="item-age"> {{instructor.Instructor.age}} </span>
+					</ons-col>
+				</ons-row>                          
+			</ons-list-item>
+		</ons-list>
+
+	</ons-page>
+</ons-template>
+
+
+ 
+
+<ons-template id="detail.html">
+    <ons-page id="detail-page">
+      	<ons-toolbar>
+	        <div class="left"><ons-back-button>Back</ons-back-button></div>
+	        <div class="center">Message & Comment</div>
+    	</ons-toolbar>    
+    	<ons-list modifier="inset" style="margin-top: 10px" >
+		  <ons-list-header>Message from Instructor</ons-list-header>
+		  <ons-list-item class='msgcomment'>{{insMsg}} </ons-list-item>
+		  <ons-list-header>Comments from staff</ons-list-header>
+		  <ons-list-item class='msgcomment'>{{insComment}} </ons-list-item>
+		</ons-list>    	   
+    </ons-page>
+</ons-template>
+
+<ons-template id="review.html">
+    <ons-page id="review-page">
+      	<ons-toolbar>
+	        <div class="left"><ons-back-button>Back</ons-back-button></div>
+	        <div class="center">Reviews</div>
+    	</ons-toolbar>        
+    </ons-page>
+</ons-template>
